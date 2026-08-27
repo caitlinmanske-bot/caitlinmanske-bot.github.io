@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Assistant</title>
+<meta name="description" content="Personal Assistant is an iOS app that brings mail, calendar, reminders, shopping, food inventory, fitness, nutrition, and budgeting into one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #edf0ee;
+    --surface: #ffffff;
+    --ink: #17221f;
+    --ink-soft: #52625d;
+    --ink-faint: #7c8a85;
+    --accent: #1f7a6c;
+    --accent-soft: #dceae6;
+    --accent-soft-ink: #14554a;
+    --line: #d7ddd9;
+    --mono-chip-bg: #f2f5f3;
+    --shadow: 0 1px 2px rgba(23,34,31,0.04), 0 8px 24px -12px rgba(23,34,31,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #11181a; --surface: #182223; --ink: #e7eeec; --ink-soft: #a2b3ae; --ink-faint: #75847f;
+      --accent: #55c3ab; --accent-soft: #1c3934; --accent-soft-ink: #8fdcc7;
+      --line: #2a3536; --mono-chip-bg: #1c2728;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-color: var(--accent-soft); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+  .top-inner { max-width: 880px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; gap: 10px; color: var(--accent); }
+  .top-inner svg { width: 20px; height: 20px; flex: none; }
+  .top-inner .eyebrow { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+
+  main { max-width: 880px; margin: 0 auto; padding: 64px 24px 88px; }
+
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+    max-width: 14ch;
+  }
+  .dek { max-width: 56ch; color: var(--ink-soft); font-size: 1.15rem; margin: 0 0 40px; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 0 0 48px;
+  }
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .feature h2 {
+    font-family: "Public Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .feature p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  .callout {
+    background: var(--accent-soft);
+    color: var(--accent-soft-ink);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 14.5px;
+    margin: 0 0 40px;
+  }
+  .callout a { color: inherit; font-weight: 600; }
+
+  h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.2rem; margin: 0 0 8px; }
+  p.tight { margin: 0 0 8px; max-width: 60ch; }
+
+  footer.bottom { border-top: 1px solid var(--line); background: var(--surface); }
+  .bottom-inner {
+    max-width: 880px; margin: 0 auto; padding: 24px;
+    display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; justify-content: space-between;
+    color: var(--ink-faint); font-size: 13px;
+  }
+  footer.bottom a { color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3.5 5 6.2v5.4c0 4.6 3 8.1 7 9.4 4-1.3 7-4.8 7-9.4V6.2L12 3.5Z"/>
+      <path d="M9 12.2l2 2 4-4.3"/>
+    </svg>
+    <span class="eyebrow">Personal Assistant</span>
+  </div>
+</header>
+
+<main>
+  <h1>One app for the whole day.</h1>
+  <p class="dek">Personal Assistant is an iOS app that brings mail, calendar, reminders, shopping, food, fitness, nutrition, and budgeting into a single place — so you're not switching between five apps to run your life.</p>
+
+  <div class="features">
+    <div class="feature">
+      <h2>Mail &amp; Calendar</h2>
+      <p>Read and reply to Gmail, and see your Google Calendar and device calendar side by side — with every send requiring your explicit confirmation.</p>
+    </div>
+    <div class="feature">
+      <h2>Reminders &amp; Shopping</h2>
+      <p>A to-do list and shopping list that stay in sync with what you actually need, with quick links to finish checkout yourself.</p>
+    </div>
+    <div class="feature">
+      <h2>Food &amp; Nutrition</h2>
+      <p>Track what's in your fridge and pantry, get expiration alerts, and generate a weekly meal plan built around what you already have.</p>
+    </div>
+    <div class="feature">
+      <h2>Fitness &amp; Budget</h2>
+      <p>Personalized workout plans, and receipt-scanning expense tracking sorted into categories automatically.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>Personal Assistant is a client app with no company-run server in the middle — your data stays on your device or goes directly to the service you connected it to (like your own Google Account). See the <a href="privacy.html">Privacy Policy</a> for exactly what's accessed and why.</p>
+  </div>
+
+  <h3>Contact</h3>
+  <p class="tight">Questions about the app — <a href="mailto:caitlinmanske@gmail.com">caitlinmanske@gmail.com</a>.</p>
+</main>
+
+<footer class="bottom">
+  <div class="bottom-inner">
+    <span>Personal Assistant</span>
+    <span><a href="privacy.html">Privacy Policy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

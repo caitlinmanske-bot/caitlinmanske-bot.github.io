@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Assistant Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #edf0ee;
+    --surface: #ffffff;
+    --ink: #17221f;
+    --ink-soft: #52625d;
+    --ink-faint: #7c8a85;
+    --accent: #1f7a6c;
+    --accent-soft: #dceae6;
+    --accent-soft-ink: #14554a;
+    --line: #d7ddd9;
+    --line-strong: #b9c3bf;
+    --mono-chip-bg: #f2f5f3;
+    --shadow: 0 1px 2px rgba(23,34,31,0.04), 0 8px 24px -12px rgba(23,34,31,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #11181a; --surface: #182223; --ink: #e7eeec; --ink-soft: #a2b3ae; --ink-faint: #75847f;
+      --accent: #55c3ab; --accent-soft: #1c3934; --accent-soft-ink: #8fdcc7;
+      --line: #2a3536; --line-strong: #3a4849; --mono-chip-bg: #1c2728;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-color: var(--accent-soft); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+  .top-inner { max-width: 1160px; margin: 0 auto; padding: 40px 24px 32px; display: flex; flex-direction: column; gap: 18px; }
+  .mark { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); }
+  .mark svg { width: 22px; height: 22px; flex: none; }
+  .mark a { color: inherit; text-decoration: none; }
+  .eyebrow { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+  h1 { font-family: "Fraunces", Georgia, serif; font-optical-sizing: auto; font-weight: 500; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.08; letter-spacing: -0.01em; margin: 0; text-wrap: balance; max-width: 16ch; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; color: var(--ink-faint); }
+  .meta-row .chip { background: var(--mono-chip-bg); border: 1px solid var(--line); border-radius: 5px; padding: 3px 9px; color: var(--ink-soft); }
+  .dek { max-width: 62ch; color: var(--ink-soft); font-size: 1.02rem; }
+  .layout { max-width: 1160px; margin: 0 auto; padding: 40px 24px 88px; display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; align-items: start; }
+  @media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 8px; padding-top: 28px; } }
+  nav.toc { position: sticky; top: 28px; display: flex; flex-direction: column; gap: 2px; }
+  @media (max-width: 880px) { nav.toc { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px 10px; padding-bottom: 28px; margin-bottom: 20px; border-bottom: 1px solid var(--line); } }
+  nav.toc .toc-label { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px; }
+  @media (max-width: 880px) { nav.toc .toc-label { width: 100%; margin-bottom: 4px; } }
+  nav.toc a { color: var(--ink-soft); text-decoration: none; font-size: 14px; padding: 7px 10px; margin: 0 -10px; border-radius: 6px; }
+  @media (max-width: 880px) { nav.toc a { margin: 0; padding: 5px 10px; background: var(--mono-chip-bg); border: 1px solid var(--line); border-radius: 999px; } }
+  nav.toc a:hover { background: var(--accent-soft); color: var(--accent-soft-ink); }
+  article section { padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+  article section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  h2 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.005em; margin: 0 0 6px; text-wrap: balance; }
+  .section-note { color: var(--ink-faint); font-size: 13.5px; margin: 0 0 18px; }
+  h3 { font-family: "Public Sans", sans-serif; font-weight: 700; font-size: 1rem; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p.tight { margin-bottom: 8px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; max-width: 64ch; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  .callout { background: var(--accent-soft); color: var(--accent-soft-ink); border-radius: 10px; padding: 16px 18px; font-size: 14.5px; margin: 4px 0 20px; max-width: 66ch; }
+  .callout a { color: inherit; font-weight: 600; }
+  .callout p:last-child { margin-bottom: 0; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); margin: 4px 0 22px; }
+  table.data { border-collapse: collapse; width: 100%; min-width: 640px; background: var(--surface); font-size: 14px; }
+  table.data th, table.data td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.data thead th { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); background: var(--mono-chip-bg); white-space: nowrap; }
+  table.data tbody tr:last-child td { border-bottom: none; }
+  table.data td.feature { font-weight: 600; white-space: nowrap; }
+  table.data td.dest { color: var(--ink-soft); }
+  .pill { display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink-soft); background: var(--surface); white-space: nowrap; }
+  .pill.on-device { color: var(--accent-soft-ink); background: var(--accent-soft); border-color: transparent; }
+  footer.bottom { border-top: 1px solid var(--line); background: var(--surface); }
+  .bottom-inner { max-width: 1160px; margin: 0 auto; padding: 28px 24px 40px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; justify-content: space-between; color: var(--ink-faint); font-size: 13px; }
+  footer.bottom a { color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="mark">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3.5 5 6.2v5.4c0 4.6 3 8.1 7 9.4 4-1.3 7-4.8 7-9.4V6.2L12 3.5Z"/>
+          <path d="M9 12.2l2 2 4-4.3"/>
+        </svg>
+      </a>
+      <a href="index.html"><span class="eyebrow">Personal Assistant</span></a>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="dek">What the app can see, why it needs it, and where — if anywhere — it goes. Written in plain language, matched line for line to what the code actually does.</p>
+    <div class="meta-row">
+      <span class="chip">Last updated Aug 27, 2026</span>
+      <span class="chip">Applies to: iOS app "Personal Assistant"</span>
+      <span class="chip">Contact: caitlinmanske@gmail.com</span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <span class="toc-label">On this page</span>
+    <a href="#overview">Overview</a>
+    <a href="#data-table">What's accessed &amp; why</a>
+    <a href="#google">Your Google Account</a>
+    <a href="#device">On-device permissions</a>
+    <a href="#third-parties">Other services we use</a>
+    <a href="#storage">Where data lives</a>
+    <a href="#control">Your controls</a>
+    <a href="#children">Children</a>
+    <a href="#changes">Changes to this policy</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <article>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>Personal Assistant is a native iOS app that helps with mail, calendar, reminders, shopping, food inventory, fitness, nutrition, and budgeting in one place. It is a client app with <strong>no company-run server or database in the middle</strong> — it either talks directly to services you've explicitly connected (like your Google Account) or keeps information locally on your own iPhone.</p>
+      <p>This policy explains, category by category, what the app can access, why, and — for anything that leaves your device — exactly which outside service it goes to.</p>
+    </section>
+
+    <section id="data-table">
+      <h2>What's accessed, and why</h2>
+      <p class="section-note">The full picture at a glance. Details on Google, on-device permissions, and third-party services follow below.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Data involved</th>
+              <th>Purpose</th>
+              <th>Leaves the device?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature">Mail</td>
+              <td>Gmail messages, drafts</td>
+              <td>Read your inbox, compose &amp; send drafts you approve, unsubscribe / block senders</td>
+              <td class="dest">Google (Gmail API)</td>
+            </tr>
+            <tr>
+              <td class="feature">Calendar</td>
+              <td>Google Calendar events</td>
+              <td>Show your Google events alongside your device calendar; create, edit, or delete a Google Calendar event when you choose to</td>
+              <td class="dest">Google (Calendar API)</td>
+            </tr>
+            <tr>
+              <td class="feature">Calendar &amp; Reminders</td>
+              <td>Device calendar &amp; reminders</td>
+              <td>Create, view, and edit events/reminders directly in Apple's Calendar &amp; Reminders apps</td>
+              <td><span class="pill on-device">On device</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Leave-by advisory</td>
+              <td>Current location, event address</td>
+              <td>Estimate travel time so the app can suggest when to leave</td>
+              <td class="dest">Apple (Maps/MapKit)</td>
+            </tr>
+            <tr>
+              <td class="feature">Food &amp; Budget scanning</td>
+              <td>Camera / photo library images</td>
+              <td>Read expiration dates and receipt totals via on-device text recognition</td>
+              <td><span class="pill on-device">On device</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Voice Assistant</td>
+              <td>Microphone audio</td>
+              <td>Recognize a wake word and spoken commands</td>
+              <td class="dest">Apple (Speech framework)</td>
+            </tr>
+            <tr>
+              <td class="feature">Fitness</td>
+              <td>Heart rate (if an Apple Watch is paired)</td>
+              <td>Show heart-rate context during workouts</td>
+              <td><span class="pill on-device">On device</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Recipes, Workouts, Nutrition plans</td>
+              <td>Ingredients on hand, dietary restrictions, preferences you type in</td>
+              <td>Generate AI recipes, workout plans, and meal plans</td>
+              <td class="dest">Google (Gemini API)</td>
+            </tr>
+            <tr>
+              <td class="feature">Recipes (non-AI mode)</td>
+              <td>Ingredient names</td>
+              <td>Search a recipe database</td>
+              <td class="dest">Spoonacular</td>
+            </tr>
+            <tr>
+              <td class="feature">Recipe photos</td>
+              <td>Dish name</td>
+              <td>Find a representative stock photo</td>
+              <td class="dest">Pexels</td>
+            </tr>
+            <tr>
+              <td class="feature">Shopping, Food, Budget, Saved recipes/workouts/plans</td>
+              <td>Everything you add in those tabs</td>
+              <td>Stored so the app is useful across sessions</td>
+              <td><span class="pill on-device">On device</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="google">
+      <h2>Your Google Account</h2>
+      <p>Signing in to the Mail tab uses Google's own Sign-In flow — the app never sees or stores your Google password. Once signed in, the app requests a small, specific set of permissions:</p>
+      <ul>
+        <li><strong>Read your Gmail</strong> — to show your inbox.</li>
+        <li><strong>Compose Gmail drafts</strong> — every send requires your explicit confirmation in the app first; nothing is sent silently.</li>
+        <li><strong>Organize Gmail</strong> — used only for moving a message to Trash (never permanent deletion — Trash is recoverable for 30 days, same as Gmail's own Trash) and for creating a "block this sender" filter, mirroring Gmail's own Block button.</li>
+        <li><strong>Read and manage events on your Google Calendar</strong> — to show your events, and to create, edit, or delete a Google Calendar event when you explicitly choose to (for example, turning on "Also add to Google Calendar" when creating an event, or tapping Edit or Delete on an event that came from Google Calendar). The app never edits or deletes anything on Google Calendar on its own — only in response to an action you take in the app. This scope only covers events; it does not grant access to your Calendar's settings or let the app create or delete entire calendars.</li>
+      </ul>
+      <div class="callout">
+        <p><strong>Google API Services User Data Policy.</strong> Personal Assistant's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. Data from your Google Account is used only to power the features described on this page, is never sold, and is never used for advertising.</p>
+      </div>
+      <p>You can revoke access at any time — either from Settings inside the app (Sign Out) or from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account's third-party access page</a>.</p>
+    </section>
+
+    <section id="device">
+      <h2>On-device permissions</h2>
+      <p>These are standard iOS permissions the app asks for the first time each feature is used. Apple's own controls govern them — you can review or revoke any of them anytime in <strong>iPhone Settings → Personal Assistant</strong>.</p>
+      <h3>Calendar &amp; Reminders</h3>
+      <p class="tight">Used to read and create events/reminders in Apple's own Calendar and Reminders apps via EventKit. This data stays with whatever accounts are already configured on your phone — the app doesn't copy it anywhere else.</p>
+      <h3>Camera &amp; Photo Library</h3>
+      <p class="tight">Used in the Food and Budget tabs to photograph food labels and receipts. Text (expiration dates, totals, line items) is extracted on-device using Apple's Vision framework — the photo itself is not uploaded by this app.</p>
+      <h3>Microphone &amp; Speech Recognition</h3>
+      <p class="tight">Powers the Voice Assistant's wake word and spoken commands, using Apple's Speech framework. Recognized text is then handled the same as if you'd typed it.</p>
+      <h3>Location</h3>
+      <p class="tight">Used only to power the Calendar's "leave by" advisory — comparing your current location to an event's address to estimate travel time via Apple Maps. Not logged or used anywhere else in the app.</p>
+      <h3>Health</h3>
+      <p class="tight">If you've paired an Apple Watch, the Fitness tab can read heart-rate samples via HealthKit to show alongside a workout. This stays on-device.</p>
+      <h3>Notifications</h3>
+      <p class="tight">Used to alert you before food in your inventory expires.</p>
+    </section>
+
+    <section id="third-parties">
+      <h2>Other services this app talks to</h2>
+      <p>A few features send a small, specific piece of information to a third-party API to do their job. None of these services receive your Google Account data, your identity, or anything beyond what's listed:</p>
+      <ul>
+        <li><strong>Google Gemini (AI Studio)</strong> — when generating an AI recipe, workout, or meal plan, the ingredients/equipment you have on hand and any dietary restrictions or preferences you type are sent as a prompt. Governed by <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API terms</a>.</li>
+        <li><strong>Spoonacular</strong> — ingredient names are sent to search its recipe database, when AI-generated recipes are turned off.</li>
+        <li><strong>Pexels</strong> — a dish name is sent to find a matching stock photo for AI-generated recipes.</li>
+        <li><strong>Apple Maps (MapKit)</strong> — your location and an event's address are sent to Apple to estimate travel time for the leave-by advisory.</li>
+      </ul>
+      <p>There is no analytics or advertising SDK in this app, and no data broker relationship of any kind.</p>
+    </section>
+
+    <section id="storage">
+      <h2>Where your data actually lives</h2>
+      <p>Shopping lists, food inventory, saved recipes, saved workouts, budget entries and receipts, and saved meal plans are stored locally on your device using Apple's SwiftData framework. None of it is uploaded to a server run by the developer — because there isn't one. If you use iCloud device backups, this data may be included in those backups the same way any other app's local data would be, governed by Apple's own iCloud terms.</p>
+      <p>Your Google Account access token is managed entirely by Google's own Sign-In SDK on your device — the developer never receives, stores, or has access to your Google password or a copy of your token.</p>
+    </section>
+
+    <section id="control">
+      <h2>Your controls</h2>
+      <ul>
+        <li><strong>Disconnect Google</strong> — Settings → Sign Out, or revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account settings</a>.</li>
+        <li><strong>Delete local data</strong> — delete individual items in-app, or uninstall the app to remove everything stored locally.</li>
+        <li><strong>Revoke device permissions</strong> — iPhone Settings → Personal Assistant → turn off Camera, Microphone, Location, Calendars, Reminders, Health, or Notifications individually.</li>
+        <li><strong>Bring your own Gemini key</strong> — Settings → Gemini API Key lets you use your own free Google AI Studio key instead of the app's shared one, so your AI usage is tied to your own Google account rather than the developer's.</li>
+      </ul>
+    </section>
+
+    <section id="children">
+      <h2>Children's privacy</h2>
+      <p>Personal Assistant is not directed at, marketed to, or knowingly used by children under 13. It's a personal productivity tool designed for a general adult audience.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If what the app accesses or how it's used changes meaningfully, this page will be updated and the "Last updated" date above will reflect it. Continuing to use the app after a change means you accept the updated policy.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Questions about this policy or your data — <a href="mailto:caitlinmanske@gmail.com">caitlinmanske@gmail.com</a>.</p>
+    </section>
+  </article>
+</div>
+
+<footer class="bottom">
+  <div class="bottom-inner">
+    <span><a href="index.html">Personal Assistant</a> — Privacy Policy</span>
+    <span>Last updated August 27, 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
