@@ -41,11 +41,11 @@
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
   header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
-  .top-inner { max-width: 880px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; gap: 10px; color: var(--accent); }
+  .top-inner { max-width: 960px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; gap: 10px; color: var(--accent); }
   .top-inner svg { width: 20px; height: 20px; flex: none; }
   .top-inner .eyebrow { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
 
-  main { max-width: 880px; margin: 0 auto; padding: 64px 24px 88px; }
+  main { max-width: 960px; margin: 0 auto; padding: 64px 24px 88px; }
 
   h1 {
     font-family: "Fraunces", Georgia, serif;
@@ -62,7 +62,7 @@
 
   .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
     margin: 0 0 48px;
   }
@@ -96,7 +96,7 @@
 
   footer.bottom { border-top: 1px solid var(--line); background: var(--surface); }
   .bottom-inner {
-    max-width: 880px; margin: 0 auto; padding: 24px;
+    max-width: 960px; margin: 0 auto; padding: 24px;
     display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; justify-content: space-between;
     color: var(--ink-faint); font-size: 13px;
   }
@@ -121,20 +121,40 @@
 
   <div class="features">
     <div class="feature">
-      <h2>Mail &amp; Calendar</h2>
-      <p>Read and reply to Gmail, and see your Google Calendar and device calendar side by side — with every send requiring your explicit confirmation.</p>
+      <h2>Mail</h2>
+      <p>Read your Gmail inbox and compose replies — every send needs your explicit confirmation first, nothing goes out silently. Also finds promotional and oversized emails so you can clean up your inbox in bulk, unsubscribes or blocks repeat senders, and can sort receipt emails into their own label.</p>
     </div>
     <div class="feature">
-      <h2>Reminders &amp; Shopping</h2>
-      <p>A to-do list and shopping list that stay in sync with what you actually need, with quick links to finish checkout yourself.</p>
+      <h2>Calendar</h2>
+      <p>Day, week, and month views combining your device calendar with your Google Calendar. Events you create can sync to Google Calendar, and Google Calendar events can be edited or deleted right from the app. Add an address to an event and get a traffic-aware "leave by" time as it approaches.</p>
     </div>
     <div class="feature">
-      <h2>Food &amp; Nutrition</h2>
-      <p>Track what's in your fridge and pantry, get expiration alerts, and generate a weekly meal plan built around what you already have.</p>
+      <h2>To-Do List</h2>
+      <p>Reminders that stay in sync with Apple's own Reminders app, so they show up everywhere you'd expect.</p>
     </div>
     <div class="feature">
-      <h2>Fitness &amp; Budget</h2>
-      <p>Personalized workout plans, and receipt-scanning expense tracking sorted into categories automatically.</p>
+      <h2>Shopping</h2>
+      <p>A shopping list with sections and multi-select, price estimates per item, and one-tap links to finish checkout yourself in Amazon, Instacart, or Costco — the app never places an order on its own.</p>
+    </div>
+    <div class="feature">
+      <h2>Food</h2>
+      <p>Photograph a food label to log it automatically — name, size, and expiration date read on-device. Get notified before something expires, and sort or filter your fridge and pantry by category.</p>
+    </div>
+    <div class="feature">
+      <h2>Nutrition</h2>
+      <p>Generates a full 7-day meal plan built around what's already in your fridge and pantry, respecting dietary restrictions and calorie or macro targets — which can be set manually or calculated automatically from your weight and activity level. Customize each day's meals and difficulty before generating, and a guided step-by-step mode walks you through setup one question at a time.</p>
+    </div>
+    <div class="feature">
+      <h2>Fitness</h2>
+      <p>Personalized workout plans based on your available equipment, time, and goals, which you can adjust with plain-language feedback. Add a workout to your calendar, and see your heart rate alongside it if you've got an Apple Watch paired.</p>
+    </div>
+    <div class="feature">
+      <h2>Budget</h2>
+      <p>Scan a receipt and it's automatically categorized and totaled — mortgage, food, entertainment, travel, and more — with month-by-month history and a breakdown you can drill into by category.</p>
+    </div>
+    <div class="feature">
+      <h2>Voice Assistant</h2>
+      <p>Say a wake word to add a reminder or event, hear your day read back to you, or draft (never send) an email hands-free.</p>
     </div>
   </div>
 
