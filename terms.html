@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Assistant Terms of Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #edf0ee;
+    --surface: #ffffff;
+    --ink: #17221f;
+    --ink-soft: #52625d;
+    --ink-faint: #7c8a85;
+    --accent: #1f7a6c;
+    --accent-soft: #dceae6;
+    --accent-soft-ink: #14554a;
+    --line: #d7ddd9;
+    --line-strong: #b9c3bf;
+    --mono-chip-bg: #f2f5f3;
+    --shadow: 0 1px 2px rgba(23,34,31,0.04), 0 8px 24px -12px rgba(23,34,31,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #11181a; --surface: #182223; --ink: #e7eeec; --ink-soft: #a2b3ae; --ink-faint: #75847f;
+      --accent: #55c3ab; --accent-soft: #1c3934; --accent-soft-ink: #8fdcc7;
+      --line: #2a3536; --line-strong: #3a4849; --mono-chip-bg: #1c2728;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-color: var(--accent-soft); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+  .top-inner { max-width: 1160px; margin: 0 auto; padding: 40px 24px 32px; display: flex; flex-direction: column; gap: 18px; }
+  .mark { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); }
+  .mark svg { width: 22px; height: 22px; flex: none; }
+  .mark a { color: inherit; text-decoration: none; }
+  .eyebrow { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+  h1 { font-family: "Fraunces", Georgia, serif; font-optical-sizing: auto; font-weight: 500; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.08; letter-spacing: -0.01em; margin: 0; text-wrap: balance; max-width: 16ch; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; color: var(--ink-faint); }
+  .meta-row .chip { background: var(--mono-chip-bg); border: 1px solid var(--line); border-radius: 5px; padding: 3px 9px; color: var(--ink-soft); }
+  .dek { max-width: 62ch; color: var(--ink-soft); font-size: 1.02rem; }
+  .layout { max-width: 1160px; margin: 0 auto; padding: 40px 24px 88px; display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; align-items: start; }
+  @media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 8px; padding-top: 28px; } }
+  nav.toc { position: sticky; top: 28px; display: flex; flex-direction: column; gap: 2px; }
+  @media (max-width: 880px) { nav.toc { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px 10px; padding-bottom: 28px; margin-bottom: 20px; border-bottom: 1px solid var(--line); } }
+  nav.toc .toc-label { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px; }
+  @media (max-width: 880px) { nav.toc .toc-label { width: 100%; margin-bottom: 4px; } }
+  nav.toc a { color: var(--ink-soft); text-decoration: none; font-size: 14px; padding: 7px 10px; margin: 0 -10px; border-radius: 6px; }
+  @media (max-width: 880px) { nav.toc a { margin: 0; padding: 5px 10px; background: var(--mono-chip-bg); border: 1px solid var(--line); border-radius: 999px; } }
+  nav.toc a:hover { background: var(--accent-soft); color: var(--accent-soft-ink); }
+  article section { padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+  article section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  h2 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.005em; margin: 0 0 6px; text-wrap: balance; }
+  .section-note { color: var(--ink-faint); font-size: 13.5px; margin: 0 0 18px; }
+  h3 { font-family: "Public Sans", sans-serif; font-weight: 700; font-size: 1rem; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p.tight { margin-bottom: 8px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; max-width: 64ch; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  .callout { background: var(--accent-soft); color: var(--accent-soft-ink); border-radius: 10px; padding: 16px 18px; font-size: 14.5px; margin: 4px 0 20px; max-width: 66ch; }
+  .callout a { color: inherit; font-weight: 600; }
+  .callout p:last-child { margin-bottom: 0; }
+  .placeholder { background: #fff3cd; color: #6b4e00; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { .placeholder { background: #4a3b00; color: #ffd76b; } }
+  footer.bottom { border-top: 1px solid var(--line); background: var(--surface); }
+  .bottom-inner { max-width: 1160px; margin: 0 auto; padding: 28px 24px 40px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; justify-content: space-between; color: var(--ink-faint); font-size: 13px; }
+  footer.bottom a { color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="mark">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3.5 5 6.2v5.4c0 4.6 3 8.1 7 9.4 4-1.3 7-4.8 7-9.4V6.2L12 3.5Z"/>
+          <path d="M9 12.2l2 2 4-4.3"/>
+        </svg>
+      </a>
+      <a href="index.html"><span class="eyebrow">Personal Assistant</span></a>
+    </div>
+    <h1>Terms of Service</h1>
+    <p class="dek">The rules for using the app, in plain language where possible — what you can expect from it, what it expects from you, and where responsibility sits when something goes wrong.</p>
+    <div class="meta-row">
+      <span class="chip">Last updated Aug 27, 2026</span>
+      <span class="chip">Applies to: iOS app "Personal Assistant"</span>
+      <span class="chip">Contact: caitlinmanske@gmail.com</span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <span class="toc-label">On this page</span>
+    <a href="#acceptance">Acceptance</a>
+    <a href="#description">The app</a>
+    <a href="#eligibility">Eligibility</a>
+    <a href="#accounts">Accounts</a>
+    <a href="#license">Your license to use it</a>
+    <a href="#acceptable-use">Acceptable use</a>
+    <a href="#ai-content">AI-generated content</a>
+    <a href="#third-party">Third-party services</a>
+    <a href="#purchases">Purchases</a>
+    <a href="#ip">Ownership</a>
+    <a href="#availability">Availability &amp; changes</a>
+    <a href="#warranty">No warranty</a>
+    <a href="#liability">Limitation of liability</a>
+    <a href="#indemnification">Indemnification</a>
+    <a href="#termination">Termination</a>
+    <a href="#apple">Apple App Store terms</a>
+    <a href="#law">Governing law</a>
+    <a href="#general">General</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <article>
+    <section id="acceptance">
+      <h2>Acceptance of these terms</h2>
+      <p>These Terms of Service ("Terms") are an agreement between you and the developer of Personal Assistant ("the app," "we," "us"). By downloading, installing, or using the app, you agree to these Terms. If you don't agree to them, don't use the app.</p>
+    </section>
+
+    <section id="description">
+      <h2>What the app is</h2>
+      <p>Personal Assistant is an iOS app that helps with mail, calendar, reminders, shopping, food inventory, fitness, nutrition, and budgeting. It's a client app — most of what it does happens directly on your device or through services you've connected yourself, like your Google Account. See the <a href="privacy.html">Privacy Policy</a> for exactly what data is involved and where it goes.</p>
+    </section>
+
+    <section id="eligibility">
+      <h2>Eligibility</h2>
+      <p>The app is intended for a general adult audience and is not directed at children under 13. By using the app, you represent that you're at least 13 years old (or the minimum age of digital consent in your country, if higher) and that you're legally able to enter into this agreement.</p>
+    </section>
+
+    <section id="accounts">
+      <h2>Accounts</h2>
+      <p>The app itself doesn't have its own account system or password. Some features (Mail, Google Calendar sync) require signing in with your own Google Account through Google's own Sign-In flow, and you're responsible for anything that happens through your connected Google Account while it's linked to the app. You're also responsible for keeping your device itself secure, since the app's local data isn't protected by a separate password of its own.</p>
+    </section>
+
+    <section id="license">
+      <h2>Your license to use it</h2>
+      <p>We grant you a personal, non-exclusive, non-transferable, revocable license to install and use the app on devices you own or control, for your own personal, non-commercial use. This license doesn't give you any ownership in the app — just permission to use it under these Terms.</p>
+      <p>You may not: sell, rent, lease, or sublicense the app; reverse-engineer, decompile, or attempt to extract its source code except where a law directly prohibits that restriction; remove or alter any proprietary notices; or use the app to build a competing product.</p>
+    </section>
+
+    <section id="acceptable-use">
+      <h2>Acceptable use</h2>
+      <p>Use the app the way it's meant to be used. Don't:</p>
+      <ul>
+        <li>Use it for anything illegal, or in a way that violates another person's rights.</li>
+        <li>Try to gain unauthorized access to any part of the app, the accounts it connects to, or the third-party services it talks to.</li>
+        <li>Interfere with the app's operation — automating it in ways it's not designed for, overwhelming a connected API with requests, or attempting to bypass any limits it has.</li>
+        <li>Use the app's connection to your Google Account, or any other connected service, in a way that violates that service's own terms.</li>
+        <li>Misrepresent your identity or impersonate someone else while using the app's Mail or Calendar features.</li>
+      </ul>
+    </section>
+
+    <section id="ai-content">
+      <h2>AI-generated content</h2>
+      <p>Recipes, meal plans, and workout plans in the app are generated by an AI model (Google's Gemini) based on what you tell it. This content is provided for general informational and planning purposes only — it is <strong>not</strong> medical, nutritional, dietary, or fitness advice from a licensed professional, and it is not a substitute for one.</p>
+      <p>The app does its best to respect dietary restrictions you specify, but AI-generated content can contain mistakes, including about ingredients or nutrition. If you have a food allergy, a medical condition, or any other reason accuracy is critical, verify the details yourself before relying on them, and consult a doctor, registered dietitian, or other qualified professional as appropriate. You use AI-generated content in the app at your own risk.</p>
+    </section>
+
+    <section id="third-party">
+      <h2>Third-party services</h2>
+      <p>The app connects to services it doesn't operate — Google (Gmail, Calendar, Gemini), Spoonacular, Pexels, Apple's frameworks (Maps, HealthKit, Speech, EventKit), and links out to Amazon, Instacart, and Costco for shopping. Your use of each of those is also governed by that service's own terms and policies. We don't control, and aren't responsible for, the availability, accuracy, or content of any third-party service, or for any transaction you complete on one.</p>
+    </section>
+
+    <section id="purchases">
+      <h2>Purchases</h2>
+      <p>The app doesn't process payments and doesn't complete purchases on your behalf. Shopping features only link out to a retailer's own website or app — you review and complete any purchase yourself, directly with that retailer, under their terms. We have no responsibility for orders you place through a link the app opened.</p>
+    </section>
+
+    <section id="ip">
+      <h2>Ownership</h2>
+      <p>The app itself — its design, code, and branding — belongs to its developer. Data you create or add in the app (shopping lists, food inventory, saved recipes and workouts, budget entries, meal plans) is yours; using the app doesn't transfer any ownership of your own data to us, and most of it never leaves your device in the first place (see the Privacy Policy).</p>
+    </section>
+
+    <section id="availability">
+      <h2>Availability &amp; changes</h2>
+      <p>We may update, change, suspend, or discontinue the app or any feature of it at any time, with or without notice — including features that depend on a third-party API continuing to be available on the terms it's available on today. We're not liable for any unavailability or change, though we'll try to avoid surprises where reasonably possible.</p>
+      <p>We may also update these Terms from time to time. If we make a material change, we'll update the "Last updated" date above. Continuing to use the app after a change means you accept the updated Terms.</p>
+    </section>
+
+    <section id="warranty">
+      <h2>No warranty</h2>
+      <p>The app is provided <strong>"as is"</strong> and <strong>"as available,"</strong> without warranties of any kind, express or implied, including — to the extent allowed by law — any implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We don't warrant that the app will be uninterrupted, error-free, secure, or that any AI-generated or third-party-sourced content will be accurate or complete.</p>
+    </section>
+
+    <section id="liability">
+      <h2>Limitation of liability</h2>
+      <p>To the fullest extent permitted by law, the developer of Personal Assistant won't be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, profits, or goodwill, arising from your use of — or inability to use — the app, even if advised of the possibility of such damages. Where liability can't be fully excluded, it's limited to the greater of what you've paid for the app in the past 12 months (if anything) or $50.</p>
+      <p>Some jurisdictions don't allow certain of these limitations, so some of the above may not apply to you.</p>
+    </section>
+
+    <section id="indemnification">
+      <h2>Indemnification</h2>
+      <p>You agree to indemnify and hold harmless the developer of Personal Assistant from any claim, loss, or expense (including reasonable legal fees) arising from your misuse of the app, your violation of these Terms, or your violation of any third party's rights.</p>
+    </section>
+
+    <section id="termination">
+      <h2>Termination</h2>
+      <p>You can stop using the app anytime by deleting it from your device. We may suspend or terminate your access to the app if you materially violate these Terms. Sections that by their nature should survive termination — ownership, disclaimers, limitation of liability, indemnification — continue to apply after your use of the app ends.</p>
+    </section>
+
+    <section id="apple">
+      <h2>Apple App Store terms</h2>
+      <p>If you downloaded the app through Apple's App Store, the following additional terms apply, as required by Apple:</p>
+      <ul>
+        <li>This agreement is between you and the developer only — Apple is not a party to it and has no obligation to provide any maintenance or support for the app.</li>
+        <li>Apple has no warranty obligation for the app beyond, if applicable, refunding the purchase price under Apple's own terms.</li>
+        <li>The developer, not Apple, is responsible for addressing any claims relating to the app or your use of it, including product liability claims, claims that the app fails to meet applicable legal or regulatory requirements, and consumer protection claims.</li>
+        <li>Apple is not responsible for investigating, defending, settling, or discharging any third-party claim that the app or your possession/use of it infringes that party's intellectual property rights.</li>
+        <li>You represent that you're not located in a country subject to a U.S. government embargo or on any U.S. government restricted-party list.</li>
+        <li>Apple, and Apple's subsidiaries, are third-party beneficiaries of these Terms, and upon your acceptance, Apple has the right to enforce these Terms against you as a third-party beneficiary.</li>
+        <li>You must also comply with any applicable third-party terms when using the app (for example, your wireless carrier's data agreement).</li>
+      </ul>
+    </section>
+
+    <section id="law">
+      <h2>Governing law</h2>
+      <p>These Terms are governed by the laws of the State of <span class="placeholder">[fill in your state]</span>, United States, without regard to its conflict-of-law principles, except where applicable consumer-protection law in your own location requires otherwise.</p>
+    </section>
+
+    <section id="general">
+      <h2>General</h2>
+      <p>If any part of these Terms is found unenforceable, the rest remains in effect. Our failure to enforce any part of these Terms isn't a waiver of it. These Terms, together with the <a href="privacy.html">Privacy Policy</a>, are the entire agreement between you and the developer regarding the app.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Questions about these Terms — <a href="mailto:caitlinmanske@gmail.com">caitlinmanske@gmail.com</a>.</p>
+    </section>
+  </article>
+</div>
+
+<footer class="bottom">
+  <div class="bottom-inner">
+    <span><a href="index.html">Personal Assistant</a> — Terms of Service</span>
+    <span>Last updated August 27, 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
