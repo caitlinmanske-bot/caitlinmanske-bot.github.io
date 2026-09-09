@@ -20,6 +20,8 @@
     --line: #d7ddd9;
     --line-strong: #b9c3bf;
     --mono-chip-bg: #f2f5f3;
+    --warn-soft: #fbe9d7;
+    --warn-soft-ink: #7a4a12;
     --shadow: 0 1px 2px rgba(23,34,31,0.04), 0 8px 24px -12px rgba(23,34,31,0.12);
   }
   @media (prefers-color-scheme: dark) {
@@ -27,6 +29,7 @@
       --bg: #11181a; --surface: #182223; --ink: #e7eeec; --ink-soft: #a2b3ae; --ink-faint: #75847f;
       --accent: #55c3ab; --accent-soft: #1c3934; --accent-soft-ink: #8fdcc7;
       --line: #2a3536; --line-strong: #3a4849; --mono-chip-bg: #1c2728;
+      --warn-soft: #3a2c19; --warn-soft-ink: #e6b57c;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
     }
   }
@@ -80,6 +83,7 @@
   table.data td.dest { color: var(--ink-soft); }
   .pill { display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink-soft); background: var(--surface); white-space: nowrap; }
   .pill.on-device { color: var(--accent-soft-ink); background: var(--accent-soft); border-color: transparent; }
+  .pill.backend { color: var(--warn-soft-ink); background: var(--warn-soft); border-color: transparent; }
   footer.bottom { border-top: 1px solid var(--line); background: var(--surface); }
   .bottom-inner { max-width: 1160px; margin: 0 auto; padding: 28px 24px 40px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; justify-content: space-between; color: var(--ink-faint); font-size: 13px; }
   footer.bottom a { color: var(--ink-soft); }
@@ -101,7 +105,7 @@
     <h1>Privacy Policy</h1>
     <p class="dek">What the app can see, why it needs it, and where — if anywhere — it goes. Written in plain language, matched line for line to what the code actually does.</p>
     <div class="meta-row">
-      <span class="chip">Last updated Aug 27, 2026</span>
+      <span class="chip">Last updated Sep 9, 2026</span>
       <span class="chip">Applies to: iOS app "Personal Assistant"</span>
       <span class="chip">Contact: caitlinmanske@gmail.com</span>
     </div>
@@ -113,6 +117,7 @@
     <span class="toc-label">On this page</span>
     <a href="#overview">Overview</a>
     <a href="#data-table">What's accessed &amp; why</a>
+    <a href="#account">Account &amp; subscription</a>
     <a href="#google">Your Google Account</a>
     <a href="#device">On-device permissions</a>
     <a href="#third-parties">Other services we use</a>
@@ -126,13 +131,13 @@
   <article>
     <section id="overview">
       <h2>Overview</h2>
-      <p>Personal Assistant is a native iOS app that helps with mail, calendar, reminders, shopping, food inventory, fitness, nutrition, and budgeting in one place. It is a client app with <strong>no company-run server or database in the middle</strong> — it either talks directly to services you've explicitly connected (like your Google Account) or keeps information locally on your own iPhone.</p>
-      <p>This policy explains, category by category, what the app can access, why, and — for anything that leaves your device — exactly which outside service it goes to.</p>
+      <p>Personal Assistant is a native iOS app that helps with mail, calendar, reminders, shopping, food inventory, fitness, nutrition, and budgeting in one place. Most of what you enter — shopping lists, food inventory, saved recipes and workouts, budget entries — stays <strong>only on your own iPhone</strong>, never uploaded anywhere.</p>
+      <p>A membership is required to use the app. Creating and managing that membership — your account, your subscription status, and, for paid AI add-on plans, how many AI requests you've used — does involve a real backend the developer operates. The <a href="#data-table">table below</a> and the <a href="#account">Account &amp; subscription</a> section spell out exactly what that covers and what it doesn't.</p>
     </section>
 
     <section id="data-table">
       <h2>What's accessed, and why</h2>
-      <p class="section-note">The full picture at a glance. Details on Google, on-device permissions, and third-party services follow below.</p>
+      <p class="section-note"><span class="pill on-device">On device</span> never leaves your phone. <span class="pill backend">Developer backend</span> is stored on the developer's own server (Firebase), used only for account/subscription purposes. Everything else goes straight to the outside service named.</p>
       <div class="table-wrap">
         <table class="data">
           <thead>
@@ -144,6 +149,30 @@
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td class="feature">Account &amp; sign-in</td>
+              <td>Email address, password (never stored in plain text)</td>
+              <td>Create and sign in to your membership</td>
+              <td class="dest">Firebase Authentication (Google)</td>
+            </tr>
+            <tr>
+              <td class="feature">Subscription &amp; billing</td>
+              <td>Payment details</td>
+              <td>Process your subscription payment</td>
+              <td class="dest">Stripe or Apple — the developer never receives or stores your card number</td>
+            </tr>
+            <tr>
+              <td class="feature">Subscription status</td>
+              <td>Which plan you're on, active/inactive, a billing-provider reference ID</td>
+              <td>Confirm your membership is active so the app unlocks</td>
+              <td><span class="pill backend">Developer backend</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Managed AI add-on usage</td>
+              <td>A count of AI requests made this billing period (not their content)</td>
+              <td>Enforce your plan's monthly/daily request limit</td>
+              <td><span class="pill backend">Developer backend</span></td>
+            </tr>
             <tr>
               <td class="feature">Mail</td>
               <td>Gmail messages, drafts</td>
@@ -189,7 +218,7 @@
             <tr>
               <td class="feature">Recipes, Workouts, Nutrition plans</td>
               <td>Ingredients on hand, dietary restrictions, preferences you type in</td>
-              <td>Generate AI recipes, workout plans, and meal plans</td>
+              <td>Generate AI recipes, workout plans, and meal plans — sent either straight from your device to Google, or through the developer's server if you're on a Managed AI add-on plan (see <a href="#account">Account &amp; subscription</a>)</td>
               <td class="dest">Google (Gemini API)</td>
             </tr>
             <tr>
@@ -213,6 +242,22 @@
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section id="account">
+      <h2>Account &amp; subscription</h2>
+      <p>Using Personal Assistant requires an active membership, set up one of two ways:</p>
+      <ul>
+        <li><strong>Website + email account</strong> — you create an account (email and password) and subscribe through Stripe on the developer's website. The password itself is handled by Firebase Authentication and never stored in plain text or seen by the developer.</li>
+        <li><strong>Apple In-App Purchase</strong> — for the base membership, you can subscribe entirely through Apple with no separate account at all; Apple, not the developer, handles that payment relationship end to end.</li>
+      </ul>
+      <p>Either way, the developer's server stores only: whether your membership is currently active, which plan you're on, and a reference ID from Stripe or Apple used to look up your subscription with them — never your actual card number, which Stripe and Apple each collect and store directly.</p>
+      <h3>Managed AI add-on plans (Personal Assistant Pro / Elite)</h3>
+      <p class="tight">These optional paid add-ons give you access to AI recipes, workouts, and meal plans without setting up your own free Google AI Studio key. On these plans, that AI request is routed through the developer's own server on its way to Google's Gemini API, specifically so the developer's own key can be used instead of yours.</p>
+      <p>What that means in practice: the content of your request (ingredients, preferences, etc.) is forwarded to Google to generate a response and is <strong>not stored</strong> by the developer afterward. Only a running count of how many requests you've made this billing period is kept — enough to enforce your plan's monthly and daily limit, nothing about what you actually asked for.</p>
+      <p>If you've also added your own personal Gemini key in Settings, it's always tried first — a Managed AI plan only ever kicks in once that personal key runs out of its own free quota.</p>
+      <h3>Cancelling</h3>
+      <p class="tight">Cancel your base membership or a Managed AI add-on any time from Settings in the app. A website+Stripe subscription can also be managed from the account you signed up with; an Apple In-App Purchase is managed through your Apple ID under Settings → Subscriptions on your device — Apple doesn't allow the developer to cancel an Apple subscription on your behalf.</p>
     </section>
 
     <section id="google">
@@ -249,9 +294,11 @@
 
     <section id="third-parties">
       <h2>Other services this app talks to</h2>
-      <p>A few features send a small, specific piece of information to a third-party API to do their job. None of these services receive your Google Account data, your identity, or anything beyond what's listed:</p>
+      <p>A few features send a small, specific piece of information to a third-party service to do their job. None of these services receive your Google Account data, your identity, or anything beyond what's listed:</p>
       <ul>
         <li><strong>Google Gemini (AI Studio)</strong> — when generating an AI recipe, workout, or meal plan, the ingredients/equipment you have on hand and any dietary restrictions or preferences you type are sent as a prompt. Governed by <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API terms</a>.</li>
+        <li><strong>Stripe</strong> — if you subscribe through the website, Stripe collects and processes your payment details directly; the developer never sees your full card number. Governed by <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</li>
+        <li><strong>Apple (In-App Purchase)</strong> — if you subscribe through Apple, your payment is handled entirely by Apple under your own Apple ID. Governed by Apple's own privacy terms.</li>
         <li><strong>Spoonacular</strong> — ingredient names are sent to search its recipe database, when AI-generated recipes are turned off.</li>
         <li><strong>Pexels</strong> — a dish name is sent to find a matching stock photo for AI-generated recipes.</li>
         <li><strong>Apple Maps (MapKit)</strong> — your location and an event's address are sent to Apple to estimate travel time for the leave-by advisory.</li>
@@ -261,7 +308,8 @@
 
     <section id="storage">
       <h2>Where your data actually lives</h2>
-      <p>Shopping lists, food inventory, saved recipes, saved workouts, budget entries and receipts, and saved meal plans are stored locally on your device using Apple's SwiftData framework. None of it is uploaded to a server run by the developer — because there isn't one. If you use iCloud device backups, this data may be included in those backups the same way any other app's local data would be, governed by Apple's own iCloud terms.</p>
+      <p>Shopping lists, food inventory, saved recipes, saved workouts, budget entries and receipts, and saved meal plans are stored <strong>locally on your device</strong> using Apple's SwiftData framework — none of that is uploaded anywhere. If you use iCloud device backups, this data may be included in those backups the same way any other app's local data would be, governed by Apple's own iCloud terms.</p>
+      <p>Separately, your account and subscription record — email, active/inactive status, plan, a billing-provider reference ID, and (for Managed AI plans) a usage count — lives in the developer's own Firebase project, the one real server this app relies on. It exists solely to run your membership; it is never sold, shared, or used for advertising.</p>
       <p>Your Google Account access token is managed entirely by Google's own Sign-In SDK on your device — the developer never receives, stores, or has access to your Google password or a copy of your token.</p>
     </section>
 
@@ -269,9 +317,11 @@
       <h2>Your controls</h2>
       <ul>
         <li><strong>Disconnect Google</strong> — Settings → Sign Out, or revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account settings</a>.</li>
+        <li><strong>Cancel your membership</strong> — Settings in the app, or (for an Apple subscription) iPhone Settings → Subscriptions — see <a href="#account">Account &amp; subscription</a>.</li>
         <li><strong>Delete local data</strong> — delete individual items in-app, or uninstall the app to remove everything stored locally.</li>
         <li><strong>Revoke device permissions</strong> — iPhone Settings → Personal Assistant → turn off Camera, Microphone, Location, Calendars, Reminders, Health, or Notifications individually.</li>
-        <li><strong>Bring your own Gemini key</strong> — Settings → Gemini API Key lets you use your own free Google AI Studio key instead of the app's shared one, so your AI usage is tied to your own Google account rather than the developer's.</li>
+        <li><strong>Bring your own Gemini key</strong> — Settings → Gemini API Key lets you use your own free Google AI Studio key. It's always tried first even on a paid Managed AI plan, so your own key's usage stays tied to your own Google account, not the developer's.</li>
+        <li><strong>Delete your account</strong> — email <a href="mailto:caitlinmanske@gmail.com">caitlinmanske@gmail.com</a> to request deletion of your account and subscription record from the developer's backend.</li>
       </ul>
     </section>
 
@@ -295,7 +345,7 @@
 <footer class="bottom">
   <div class="bottom-inner">
     <span><a href="index.html">Personal Assistant</a> — Privacy Policy · <a href="terms.html">Terms of Service</a></span>
-    <span>Last updated August 27, 2026</span>
+    <span>Last updated September 9, 2026</span>
   </div>
 </footer>
 
