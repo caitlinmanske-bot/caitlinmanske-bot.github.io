@@ -105,10 +105,10 @@
     <h1>Privacy Policy</h1>
     <p class="dek">What the app can see, why it needs it, and where — if anywhere — it goes. Written in plain language, matched line for line to what the code actually does.</p>
     <div class="meta-row">
-      <span class="chip">Last updated Sep 10, 2026</span>
+      <span class="chip">Last updated Sep 22, 2026</span>
       <span class="chip">Applies to: iOS app "Personal Assistant"</span>
       <span class="chip">Operated by: Derive LLC</span>
-      <span class="chip">Contact: caitlinmanske@gmail.com</span>
+      <span class="chip">Contact: Caitlin@derivellc.com</span>
     </div>
   </div>
 </header>
@@ -175,12 +175,6 @@
               <td><span class="pill backend">Developer backend</span></td>
             </tr>
             <tr>
-              <td class="feature">Mail</td>
-              <td>Gmail messages, drafts</td>
-              <td>Read your inbox, compose &amp; send drafts you approve, unsubscribe / block senders</td>
-              <td class="dest">Google (Gmail API)</td>
-            </tr>
-            <tr>
               <td class="feature">Calendar</td>
               <td>Google Calendar events</td>
               <td>Show your Google events alongside your device calendar; create, edit, or delete a Google Calendar event when you choose to</td>
@@ -203,6 +197,42 @@
               <td>Camera / photo library images</td>
               <td>Read expiration dates and receipt totals via on-device text recognition</td>
               <td><span class="pill on-device">On device</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Label photos, receipt itemizing, statement import</td>
+              <td>A photo of a nutrition label, a receipt's recognized text, or screenshots/pages of a bank statement you choose</td>
+              <td>Have the AI read the label, list receipt items, or pull transactions out of a statement — only when you tap the button for it</td>
+              <td class="dest">Google (Gemini API)</td>
+            </tr>
+            <tr>
+              <td class="feature">Product health scores</td>
+              <td>The barcode you scan (and a product name, for finding alternatives)</td>
+              <td>Look up the product's nutrition, additives, and processing level; suggest better options</td>
+              <td class="dest">Open Food Facts (public database)</td>
+            </tr>
+            <tr>
+              <td class="feature">Contributing a missing product</td>
+              <td>Nutrition facts, ingredients, product name/size, and the label or package photo you took — only if you tap "Add It"</td>
+              <td>Add a product the database doesn't have, so the next person's scan works. Posted under the app's own account; nothing about you is included</td>
+              <td class="dest">Open Food Facts (public database)</td>
+            </tr>
+            <tr>
+              <td class="feature">Journal</td>
+              <td>Your entries and photos; an optional 4-digit PIN</td>
+              <td>Keep a daily journal. The PIN is stored in your device's keychain</td>
+              <td><span class="pill on-device">On device</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Journal PIN reset</td>
+              <td>Your account email address; a one-time 6-digit code</td>
+              <td>Email you a code to reset a forgotten journal PIN — only when you ask for one</td>
+              <td><span class="pill backend">Developer backend</span> → your email</td>
+            </tr>
+            <tr>
+              <td class="feature">Crash reports</td>
+              <td>Technical details of a crash or freeze (call stack, app and iOS version, device model) and your account ID</td>
+              <td>Find and fix bugs. No journal, food, budget, or other personal content is included</td>
+              <td><span class="pill backend">Developer backend</span></td>
             </tr>
             <tr>
               <td class="feature">Voice Assistant</td>
@@ -263,11 +293,8 @@
 
     <section id="google">
       <h2>Your Google Account</h2>
-      <p>Signing in to the Mail tab uses Google's own Sign-In flow — the app never sees or stores your Google password. Once signed in, the app requests a small, specific set of permissions:</p>
+      <p>Connecting Google Calendar uses Google's own Sign-In flow — the app never sees or stores your Google password. The app asks for exactly one permission, and nothing to do with Gmail:</p>
       <ul>
-        <li><strong>Read your Gmail</strong> — to show your inbox.</li>
-        <li><strong>Compose Gmail drafts</strong> — every send requires your explicit confirmation in the app first; nothing is sent silently.</li>
-        <li><strong>Organize Gmail</strong> — used only for moving a message to Trash (never permanent deletion — Trash is recoverable for 30 days, same as Gmail's own Trash) and for creating a "block this sender" filter, mirroring Gmail's own Block button.</li>
         <li><strong>Read and manage events on your Google Calendar</strong> — to show your events, and to create, edit, or delete a Google Calendar event when you explicitly choose to (for example, turning on "Also add to Google Calendar" when creating an event, or tapping Edit or Delete on an event that came from Google Calendar). The app never edits or deletes anything on Google Calendar on its own — only in response to an action you take in the app. This scope only covers events; it does not grant access to your Calendar's settings or let the app create or delete entire calendars.</li>
       </ul>
       <div class="callout">
@@ -297,32 +324,34 @@
       <h2>Other services this app talks to</h2>
       <p>A few features send a small, specific piece of information to a third-party service to do their job. None of these services receive your Google Account data, your identity, or anything beyond what's listed:</p>
       <ul>
-        <li><strong>Google Gemini (AI Studio)</strong> — when generating an AI recipe, workout, or meal plan, the ingredients/equipment you have on hand and any dietary restrictions or preferences you type are sent as a prompt. Governed by <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API terms</a>.</li>
+        <li><strong>Google Gemini (AI Studio)</strong> — when generating an AI recipe, workout, or meal plan, the ingredients/equipment you have on hand and any dietary restrictions or preferences you type are sent as a prompt. The same applies to a nutrition-label photo you ask it to read, a receipt's recognized text you ask it to itemize, and bank-statement screenshots or pages you choose to import. Governed by <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API terms</a>.</li>
         <li><strong>Stripe</strong> — if you subscribe through the website, Stripe collects and processes your payment details directly; the developer never sees your full card number. Governed by <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</li>
         <li><strong>Apple (In-App Purchase)</strong> — if you subscribe through Apple, your payment is handled entirely by Apple under your own Apple ID. Governed by Apple's own privacy terms.</li>
         <li><strong>Spoonacular</strong> — ingredient names are sent to search its recipe database, when AI-generated recipes are turned off.</li>
         <li><strong>Pexels</strong> — a dish name is sent to find a matching stock photo for AI-generated recipes.</li>
         <li><strong>Apple Maps (MapKit)</strong> — your location and an event's address are sent to Apple to estimate travel time for the leave-by advisory.</li>
+        <li><strong>Open Food Facts</strong> — a scanned barcode is looked up in this free, public food database to grade the product. If a product is missing and you choose "Add It", the label facts and photo you provide are contributed to that public database under the app's own account. Governed by <a href="https://world.openfoodfacts.org/terms-of-use" target="_blank" rel="noopener">Open Food Facts' terms</a>.</li>
       </ul>
       <p>There is no analytics or advertising SDK in this app, and no data broker relationship of any kind.</p>
     </section>
 
     <section id="storage">
       <h2>Where your data actually lives</h2>
-      <p>Shopping lists, food inventory, saved recipes, saved workouts, budget entries and receipts, and saved meal plans are stored <strong>locally on your device</strong> using Apple's SwiftData framework — none of that is uploaded anywhere. If you use iCloud device backups, this data may be included in those backups the same way any other app's local data would be, governed by Apple's own iCloud terms.</p>
-      <p>Separately, your account and subscription record — email, active/inactive status, plan, a billing-provider reference ID, and (for Managed AI plans) a usage count — lives in the developer's own Firebase project, the one real server this app relies on. It exists solely to run your membership; it is never sold, shared, or used for advertising.</p>
+      <p>Shopping lists, food inventory, saved recipes, saved workouts, budget entries and receipts, saved meal plans, your journal and its photos, weight and nutrition logs, and product scans are stored <strong>locally on your device</strong> using Apple's SwiftData framework — none of that is uploaded anywhere. If you use iCloud device backups, this data may be included in those backups the same way any other app's local data would be, governed by Apple's own iCloud terms.</p>
+      <p>Separately, your account and subscription record — email, active/inactive status, plan, a billing-provider reference ID, and (for Managed AI plans) a usage count — plus any crash reports and a short-lived journal-PIN reset code, lives in the developer's own Firebase project, the one real server this app relies on. It exists solely to run your membership; it is never sold, shared, or used for advertising.</p>
       <p>Your Google Account access token is managed entirely by Google's own Sign-In SDK on your device — the developer never receives, stores, or has access to your Google password or a copy of your token.</p>
     </section>
 
     <section id="control">
       <h2>Your controls</h2>
       <ul>
-        <li><strong>Disconnect Google</strong> — Settings → Sign Out, or revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account settings</a>.</li>
+        <li><strong>Disconnect Google Calendar</strong> — Settings → Sign Out, or revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account settings</a>.</li>
         <li><strong>Cancel your membership</strong> — Settings in the app, or (for an Apple subscription) iPhone Settings → Subscriptions — see <a href="#account">Account &amp; subscription</a>.</li>
+        <li><strong>Back up or move your data</strong> — Settings → Backup &amp; Restore writes everything the app stores to a single file you keep, and can restore from one.</li>
         <li><strong>Delete local data</strong> — delete individual items in-app, or uninstall the app to remove everything stored locally.</li>
         <li><strong>Revoke device permissions</strong> — iPhone Settings → Personal Assistant → turn off Camera, Microphone, Location, Calendars, Reminders, Health, or Notifications individually.</li>
         <li><strong>Bring your own Gemini key</strong> — Settings → Gemini API Key lets you use your own free Google AI Studio key. It's always tried first even on a paid Managed AI plan, so your own key's usage stays tied to your own Google account, not the developer's.</li>
-        <li><strong>Delete your account</strong> — email <a href="mailto:caitlinmanske@gmail.com">caitlinmanske@gmail.com</a> to request deletion of your account and subscription record from the developer's backend.</li>
+        <li><strong>Delete your account</strong> — Settings → Delete Account removes your sign-in and your account record from the developer's backend immediately. You can also email <a href="mailto:Caitlin@derivellc.com">Caitlin@derivellc.com</a> to request it.</li>
       </ul>
     </section>
 
@@ -338,7 +367,7 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Questions about this policy or your data — <a href="mailto:caitlinmanske@gmail.com">caitlinmanske@gmail.com</a>.</p>
+      <p>Questions about this policy or your data — <a href="mailto:Caitlin@derivellc.com">Caitlin@derivellc.com</a>.</p>
     </section>
   </article>
 </div>
@@ -346,7 +375,7 @@
 <footer class="bottom">
   <div class="bottom-inner">
     <span><a href="index.html">Personal Assistant</a> — Privacy Policy · <a href="terms.html">Terms of Service</a></span>
-    <span>Last updated September 10, 2026</span>
+    <span>Last updated September 22, 2026</span>
   </div>
 </footer>
 
