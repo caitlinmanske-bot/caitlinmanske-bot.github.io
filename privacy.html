@@ -105,7 +105,7 @@
     <h1>Privacy Policy</h1>
     <p class="dek">What the app can see, why it needs it, and where — if anywhere — it goes. Written in plain language, matched line for line to what the code actually does.</p>
     <div class="meta-row">
-      <span class="chip">Last updated Sep 22, 2026</span>
+      <span class="chip">Last updated Sep 30, 2026</span>
       <span class="chip">Applies to: iOS app "Personal Assistant"</span>
       <span class="chip">Operated by: Derive LLC</span>
       <span class="chip">Contact: Caitlin@derivellc.com</span>
@@ -132,13 +132,20 @@
   <article>
     <section id="overview">
       <h2>Overview</h2>
-      <p>Personal Assistant is a native iOS app, developed and operated by <strong>Derive LLC</strong> ("we," "us," "the developer"), that helps with mail, calendar, reminders, shopping, food inventory, fitness, nutrition, and budgeting in one place. Most of what you enter — shopping lists, food inventory, saved recipes and workouts, budget entries — stays <strong>only on your own iPhone</strong>, never uploaded anywhere.</p>
-      <p>A membership is required to use the app. Creating and managing that membership — your account, your subscription status, and, for paid AI add-on plans, how many AI requests you've used — does involve a real backend the developer operates. The <a href="#data-table">table below</a> and the <a href="#account">Account &amp; subscription</a> section spell out exactly what that covers and what it doesn't.</p>
+      <p>Personal Assistant is a native iOS app, developed and operated by <strong>Derive LLC</strong> ("we," "us," "the developer"), that helps with calendar, reminders, shopping, food inventory, fitness, nutrition, budgeting and journaling in one place. Most of what you enter — shopping lists, food inventory, saved recipes and workouts, budget entries, your journal — stays <strong>on your own iPhone</strong>.</p>
+      <p>Four things can send data off your phone, and each is described below:</p>
+      <ul>
+        <li><strong>AI features you use.</strong> The app uses Google's Gemini AI with a key you set up yourself. Each AI request goes <strong>straight from your phone to Google, with no server of ours in between</strong>. Some AI features have an on-device alternative, and you choose each time.</li>
+        <li><strong>Your account.</strong> Signing in and managing your plan uses a small backend we run (Firebase). It holds your account record, not your food, budget, health or journal content.</li>
+        <li><strong>Sharing.</strong> If you share a budget, food inventory or bill split with other people, what you share is stored on that backend so they can see it.</li>
+        <li><strong>iCloud sync.</strong> If you turn it on, your data is kept in your own private iCloud.</li>
+      </ul>
+      <p>The <a href="#data-table">table below</a> lists every feature and exactly where its data goes. There is no advertising or analytics SDK in the app, and we never sell your data.</p>
     </section>
 
     <section id="data-table">
       <h2>What's accessed, and why</h2>
-      <p class="section-note"><span class="pill on-device">On device</span> never leaves your phone. <span class="pill backend">Developer backend</span> is stored on the developer's own server (Firebase), used only for account/subscription purposes. Everything else goes straight to the outside service named.</p>
+      <p class="section-note"><span class="pill on-device">On device</span> never leaves your phone. <span class="pill backend">Developer backend</span> is our own Firebase project. Everything else goes straight to the outside service named.</p>
       <div class="table-wrap">
         <table class="data">
           <thead>
@@ -153,38 +160,38 @@
             <tr>
               <td class="feature">Account &amp; sign-in</td>
               <td>Email address, password (never stored in plain text)</td>
-              <td>Create and sign in to your membership</td>
-              <td class="dest">Firebase Authentication (Google)</td>
+              <td>Create and sign in to your account</td>
+              <td class="dest"><span class="pill backend">Developer backend</span> · Firebase Authentication (Google)</td>
             </tr>
             <tr>
               <td class="feature">Subscription &amp; billing</td>
               <td>Payment details</td>
-              <td>Process your subscription payment</td>
+              <td>Process a subscription payment</td>
               <td class="dest">Stripe or Apple — the developer never receives or stores your card number</td>
             </tr>
             <tr>
-              <td class="feature">Subscription status</td>
+              <td class="feature">Plan &amp; status</td>
               <td>Which plan you're on, active/inactive, a billing-provider reference ID</td>
-              <td>Confirm your membership is active so the app unlocks</td>
-              <td><span class="pill backend">Developer backend</span></td>
+              <td>Confirm your plan is active so its features unlock</td>
+              <td class="dest"><span class="pill backend">Developer backend</span></td>
             </tr>
             <tr>
-              <td class="feature">Managed AI add-on usage</td>
-              <td>A count of AI requests made this billing period (not their content)</td>
-              <td>Enforce your plan's monthly/daily request limit</td>
-              <td><span class="pill backend">Developer backend</span></td>
+              <td class="feature">Signed-in devices</td>
+              <td>Each device's name, model, app version and notification token</td>
+              <td>Keep a list of the devices on your account (a second device needs iCloud sync) and send notifications such as a bill-split payment claim</td>
+              <td class="dest"><span class="pill backend">Developer backend</span></td>
             </tr>
             <tr>
-              <td class="feature">Calendar</td>
+              <td class="feature">Google Calendar</td>
               <td>Google Calendar events</td>
-              <td>Show your Google events alongside your device calendar; create, edit, or delete a Google Calendar event when you choose to</td>
+              <td>Show your Google events alongside your device calendar; create, edit, or delete one only when you choose to</td>
               <td class="dest">Google (Calendar API)</td>
             </tr>
             <tr>
               <td class="feature">Calendar &amp; Reminders</td>
               <td>Device calendar &amp; reminders</td>
-              <td>Create, view, and edit events/reminders directly in Apple's Calendar &amp; Reminders apps</td>
-              <td><span class="pill on-device">On device</span></td>
+              <td>Create, view, and edit events and reminders in Apple's Calendar and Reminders apps</td>
+              <td class="dest"><span class="pill on-device">On device</span></td>
             </tr>
             <tr>
               <td class="feature">Leave-by advisory</td>
@@ -193,70 +200,124 @@
               <td class="dest">Apple (Maps/MapKit)</td>
             </tr>
             <tr>
-              <td class="feature">Food &amp; Budget scanning</td>
+              <td class="feature">Scanning receipts, labels and expiry dates</td>
               <td>Camera / photo library images</td>
-              <td>Read expiration dates and receipt totals via on-device text recognition</td>
-              <td><span class="pill on-device">On device</span></td>
+              <td>Text is first read on your phone with Apple's text recognition. A photo only goes to AI if you choose an AI option below</td>
+              <td class="dest"><span class="pill on-device">On device</span></td>
             </tr>
             <tr>
-              <td class="feature">Label photos, receipt itemizing, statement import</td>
-              <td>A photo of a nutrition label, a receipt's recognized text, or screenshots/pages of a bank statement you choose</td>
-              <td>Have the AI read the label, list receipt items, or pull transactions out of a statement — only when you tap the button for it</td>
-              <td class="dest">Google (Gemini API)</td>
+              <td class="feature">AI: recipes, meal plans, workouts</td>
+              <td>Ingredients on hand, dietary restrictions, preferences and anything you type into those screens</td>
+              <td>Generate recipes, meal plans and workout plans</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: meal photos, descriptions and ingredient breakdowns</td>
+              <td>A photo or typed description of a meal, plus any weights or barcode details you add</td>
+              <td>Estimate calories and nutrition, and break a meal down by ingredient</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: product labels</td>
+              <td>A photo of a nutrition label and ingredient list</td>
+              <td>Score a product the barcode database doesn't know</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: receipts</td>
+              <td>When you choose an AI option: the receipt photo and its text. You can instead choose to read it on your phone with no AI</td>
+              <td>Pull out the total, or the items, from a receipt</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: bank statements</td>
+              <td>When you choose Gemini for a CSV/PDF, or for any screenshot or photo: the statement text or images. Account, card and routing numbers, emails, phone numbers, street addresses and ZIP codes are blanked out on your phone first, but a printed name may not be. For a CSV or PDF you can instead choose to keep it on your phone, and nothing is sent</td>
+              <td>Pull transactions out of a statement, and suggest names and categories</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: Nutrition Coach</td>
+              <td>What you've eaten today, your nutrition targets, and food on hand</td>
+              <td>Suggest foods to fill gaps or review your day</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: importing recipes and workouts</td>
+              <td>Text from the link or from your photo (read on your phone first)</td>
+              <td>Reformat a recipe or workout into the app's layout</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key. A link's web page is fetched directly from that website</td>
+            </tr>
+            <tr>
+              <td class="feature">AI: ingredient price estimates</td>
+              <td>Ingredient names and your selected city</td>
+              <td>Estimate a price when an ingredient isn't in the app's price list (this runs automatically when a key is saved)</td>
+              <td class="dest">Google (Gemini API), straight from your phone with your own key</td>
+            </tr>
+            <tr>
+              <td class="feature">Voice assistant</td>
+              <td>Your spoken request. Apple turns speech into text. The text, not the audio, is sent to Gemini only when the app can't work out the request itself</td>
+              <td>Run voice commands, including from Apple Watch and Cook Mode</td>
+              <td class="dest">Apple (Speech) · Google (Gemini API) only for requests the app doesn't recognize</td>
             </tr>
             <tr>
               <td class="feature">Product health scores</td>
               <td>The barcode you scan (and a product name, for finding alternatives)</td>
-              <td>Look up the product's nutrition, additives, and processing level; suggest better options</td>
+              <td>Look up the product's nutrition, additives and processing level; suggest better options</td>
               <td class="dest">Open Food Facts (public database)</td>
             </tr>
             <tr>
               <td class="feature">Contributing a missing product</td>
-              <td>Nutrition facts, ingredients, product name/size, and the label or package photo you took — only if you tap "Add It"</td>
-              <td>Add a product the database doesn't have, so the next person's scan works. Posted under the app's own account; nothing about you is included</td>
-              <td class="dest">Open Food Facts (public database)</td>
+              <td>Nutrition facts, ingredients, product name/size and the label or package photo you took, only if you tap "Add It"</td>
+              <td>Add a product the database doesn't have. Posted under the app's own account; nothing about you is included</td>
+              <td class="dest">Open Food Facts (public database), via <span class="pill backend">Developer backend</span></td>
+            </tr>
+            <tr>
+              <td class="feature">Food nutrition lookups</td>
+              <td>Food and ingredient names</td>
+              <td>Look up real nutrient values</td>
+              <td class="dest">USDA FoodData Central, forwarded through <span class="pill backend">Developer backend</span> (which does not keep a record of what was searched)</td>
             </tr>
             <tr>
               <td class="feature">Journal</td>
               <td>Your entries and photos; an optional 4-digit PIN</td>
               <td>Keep a daily journal. The PIN is stored in your device's keychain</td>
-              <td><span class="pill on-device">On device</span></td>
+              <td class="dest"><span class="pill on-device">On device</span></td>
             </tr>
             <tr>
               <td class="feature">Journal PIN reset</td>
               <td>Your account email address; a one-time 6-digit code</td>
-              <td>Email you a code to reset a forgotten journal PIN — only when you ask for one</td>
-              <td><span class="pill backend">Developer backend</span> → your email</td>
+              <td>Email you a code to reset a forgotten PIN, only when you ask for one</td>
+              <td class="dest"><span class="pill backend">Developer backend</span> → your email</td>
             </tr>
             <tr>
               <td class="feature">Crash reports</td>
               <td>Technical details of a crash or freeze (call stack, app and iOS version, device model) and your account ID</td>
               <td>Find and fix bugs. No journal, food, budget, or other personal content is included</td>
-              <td><span class="pill backend">Developer backend</span></td>
+              <td class="dest"><span class="pill backend">Developer backend</span></td>
             </tr>
             <tr>
-              <td class="feature">Voice Assistant</td>
-              <td>Microphone audio</td>
-              <td>Recognize a wake word and spoken commands</td>
-              <td class="dest">Apple (Speech framework)</td>
+              <td class="feature">Apple Health</td>
+              <td>Heart rate, active energy, steps and workouts (during workouts), sleep, and cycle data (period days, basal body temperature) if you allow them</td>
+              <td>Show them in the app. If you turn it on, the app also saves your logged meals' nutrition and logged period days to Health. None of this is sent to AI or to the developer</td>
+              <td class="dest"><span class="pill on-device">On device</span> · Apple Health</td>
             </tr>
             <tr>
-              <td class="feature">Fitness</td>
-              <td>Heart rate (if an Apple Watch is paired)</td>
-              <td>Show heart-rate context during workouts</td>
-              <td><span class="pill on-device">On device</span></td>
+              <td class="feature">Sharing with other people (optional)</td>
+              <td>What you choose to share: budget categories and their expenses (last 60 days), a food inventory, a bill-split event or group (people, expenses and receipt photos), and a code or link for each</td>
+              <td>Let other people see and, if you allow, edit it. The live link for a bill split is viewable by anyone who has the link</td>
+              <td class="dest"><span class="pill backend">Developer backend</span>. Stops when you turn sharing off; expired or idle shared items are also removed automatically</td>
             </tr>
             <tr>
-              <td class="feature">Recipes, Workouts, Nutrition plans</td>
-              <td>Ingredients on hand, dietary restrictions, preferences you type in</td>
-              <td>Generate AI recipes, workout plans, and meal plans — sent either straight from your device to Google, or through the developer's server if you're on a Managed AI add-on plan (see <a href="#account">Account &amp; subscription</a>)</td>
-              <td class="dest">Google (Gemini API)</td>
+              <td class="feature">iCloud sync (optional, off by default)</td>
+              <td>Everything the app stores: lists, inventory, recipes, budget, journal, logs and photos</td>
+              <td>Keep your data in step across your own devices</td>
+              <td class="dest">Your private iCloud (Apple CloudKit). The developer cannot see it</td>
             </tr>
             <tr>
-              <td class="feature">Shopping, Food, Budget, Saved recipes/workouts/plans</td>
-              <td>Everything you add in those tabs</td>
+              <td class="feature">Everything else</td>
+              <td>Shopping, food, budget, saved recipes/workouts/plans, weight and nutrition logs, product scans</td>
               <td>Stored so the app is useful across sessions</td>
-              <td><span class="pill on-device">On device</span></td>
+              <td class="dest"><span class="pill on-device">On device</span></td>
             </tr>
           </tbody>
         </table>
@@ -265,18 +326,11 @@
 
     <section id="account">
       <h2>Account &amp; subscription</h2>
-      <p>Using Personal Assistant requires an active membership, set up one of two ways:</p>
-      <ul>
-        <li><strong>Website + email account</strong> — you create an account (email and password) and subscribe through Stripe on the developer's website. The password itself is handled by Firebase Authentication and never stored in plain text or seen by the developer.</li>
-        <li><strong>Apple In-App Purchase</strong> — for the base membership, you can subscribe entirely through Apple with no separate account at all; Apple, not the developer, handles that payment relationship end to end.</li>
-      </ul>
-      <p>Either way, the developer's server stores only: whether your membership is currently active, which plan you're on, and a reference ID from Stripe or Apple used to look up your subscription with them — never your actual card number, which Stripe and Apple each collect and store directly.</p>
-      <h3>Managed AI add-on plans (Personal Assistant Pro / Elite)</h3>
-      <p class="tight">These optional paid add-ons give you access to AI recipes, workouts, and meal plans without setting up your own free Google AI Studio key. On these plans, that AI request is routed through the developer's own server on its way to Google's Gemini API, specifically so the developer's own key can be used instead of yours.</p>
-      <p>What that means in practice: the content of your request (ingredients, preferences, etc.) is forwarded to Google to generate a response and is <strong>not stored</strong> by the developer afterward. Only a running count of how many requests you've made this billing period is kept — enough to enforce your plan's monthly and daily limit, nothing about what you actually asked for.</p>
-      <p>If you've also added your own personal Gemini key in Settings, it's always tried first — a Managed AI plan only ever kicks in once that personal key runs out of its own free quota.</p>
-      <h3>Cancelling</h3>
-      <p class="tight">Cancel your base membership or a Managed AI add-on any time from Settings in the app. A website+Stripe subscription can also be managed from the account you signed up with; an Apple In-App Purchase is managed through your Apple ID under Settings → Subscriptions on your device — Apple doesn't allow the developer to cancel an Apple subscription on your behalf.</p>
+      <p>You sign in with an email and password (handled by Firebase Authentication, never stored in plain text or seen by us), or with Google. Plans can be bought through Stripe on our website or through Apple In-App Purchase, and some people are given access directly by us.</p>
+      <p>Our server stores only: your account record, whether your plan is active, which plan you're on, a reference ID from Stripe or Apple used to look up your subscription with them, and the list of devices on your account. It never stores your card number; Stripe and Apple collect and keep that directly.</p>
+      <p>Paid plans unlock features such as Shared Budget and the Weekly Meal Plan. <strong>AI features are not part of any plan</strong>: they run on your own Gemini key, and we don't route, count or store your AI requests.</p>
+      <h3>Cancelling and deleting</h3>
+      <p>Cancel from Settings in the app. A website (Stripe) subscription can also be managed from the account you signed up with; an Apple subscription is managed under Settings → Subscriptions on your iPhone, because Apple doesn't allow us to cancel it for you. <strong>Delete Account</strong> in Settings removes your sign-in, your account record and your device list from our backend right away; data on your phone stays until you delete the app.</p>
     </section>
 
     <section id="google">
@@ -290,54 +344,52 @@
       </div>
       <p>You can revoke access at any time — either from Settings inside the app (Sign Out) or from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account's third-party access page</a>.</p>
     </section>
-
     <section id="device">
       <h2>On-device permissions</h2>
-      <p>These are standard iOS permissions the app asks for the first time each feature is used. Apple's own controls govern them — you can review or revoke any of them anytime in <strong>iPhone Settings → Personal Assistant</strong>.</p>
-      <h3>Calendar &amp; Reminders</h3>
-      <p class="tight">Used to read and create events/reminders in Apple's own Calendar and Reminders apps via EventKit. This data stays with whatever accounts are already configured on your phone — the app doesn't copy it anywhere else.</p>
-      <h3>Camera &amp; Photo Library</h3>
-      <p class="tight">Used in the Food and Budget tabs to photograph food labels and receipts. Text (expiration dates, totals, line items) is extracted on-device using Apple's Vision framework — the photo itself is not uploaded by this app.</p>
-      <h3>Microphone &amp; Speech Recognition</h3>
-      <p class="tight">Powers the Voice Assistant's wake word and spoken commands, using Apple's Speech framework. Recognized text is then handled the same as if you'd typed it.</p>
-      <h3>Location</h3>
-      <p class="tight">Used only to power the Calendar's "leave by" advisory — comparing your current location to an event's address to estimate travel time via Apple Maps. Not logged or used anywhere else in the app.</p>
-      <h3>Health</h3>
-      <p class="tight">If you've paired an Apple Watch, the Fitness tab can read heart-rate samples via HealthKit to show alongside a workout. This stays on-device.</p>
-      <h3>Notifications</h3>
-      <p class="tight">Used to alert you before food in your inventory expires.</p>
+      <p>These are standard iOS permissions the app asks for the first time each feature is used. You can review or revoke any of them in iPhone Settings → Personal Assistant.</p>
+      <ul>
+        <li><strong>Calendar &amp; Reminders</strong> — read and create events and reminders in Apple's own apps through EventKit. The app doesn't copy them anywhere else.</li>
+        <li><strong>Camera &amp; Photo Library</strong> — to photograph food labels, meals, receipts and statements. Text is read on your phone with Apple's Vision framework. A photo is sent to Google only if you use an AI feature that needs the picture (meal photos, nutrition labels, receipts or statements you choose to read with AI).</li>
+        <li><strong>Microphone &amp; Speech Recognition</strong> — for voice commands and hands-free Cook Mode ("next", "back"). Apple's Speech framework turns speech into text. There is no always-on listening for a wake word. Cook Mode listens only while it's open.</li>
+        <li><strong>Location</strong> — only for the Calendar's "leave by" advisory, which compares your location to an event's address through Apple Maps. Not logged or used anywhere else.</li>
+        <li><strong>Apple Health</strong> — heart rate, active energy, steps and workouts, sleep, and cycle data, only the types you allow. It stays on your device (and in your own iCloud if you turn sync on). It is never included in an AI request or sent to us. If you enable it, the app can also write your logged meals and period days to Health.</li>
+        <li><strong>Notifications</strong> — to alert you before food expires, for reminders, and for things like a bill-split payment claim.</li>
+      </ul>
     </section>
 
     <section id="third-parties">
       <h2>Other services this app talks to</h2>
-      <p>A few features send a small, specific piece of information to a third-party service to do their job. None of these services receive your Google Account data, your identity, or anything beyond what's listed:</p>
+      <p>A few features send a specific piece of information to a third-party service to do their job. None of them receive your Google Account data or anything beyond what's listed in the table above:</p>
       <ul>
-        <li><strong>Google Gemini (AI Studio)</strong> — when generating an AI recipe, workout, or meal plan, the ingredients/equipment you have on hand and any dietary restrictions or preferences you type are sent as a prompt. The same applies to a nutrition-label photo you ask it to read, a receipt's recognized text you ask it to itemize, and bank-statement screenshots or pages you choose to import. Governed by <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API terms</a>.</li>
-        <li><strong>Stripe</strong> — if you subscribe through the website, Stripe collects and processes your payment details directly; the developer never sees your full card number. Governed by <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</li>
-        <li><strong>Apple (In-App Purchase)</strong> — if you subscribe through Apple, your payment is handled entirely by Apple under your own Apple ID. Governed by Apple's own privacy terms.</li>
-        <li><strong>Apple Maps (MapKit)</strong> — your location and an event's address are sent to Apple to estimate travel time for the leave-by advisory.</li>
-        <li><strong>Open Food Facts</strong> — a scanned barcode is looked up in this free, public food database to grade the product. If a product is missing and you choose "Add It", the label facts and photo you provide are contributed to that public database under the app's own account. Governed by <a href="https://world.openfoodfacts.org/terms-of-use" target="_blank" rel="noopener">Open Food Facts' terms</a>.</li>
+        <li><strong>Google Gemini (AI Studio)</strong> — receives what you send through the AI features listed above. Requests go straight from your phone, using your own key, to Google. <strong>Google's own terms and privacy notice govern what Google does with it, and those terms can differ between free and paid keys — including whether content may be used to improve Google's products or reviewed by people.</strong> Please read the terms for the key you use: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API terms</a>. We don't control or see these requests.</li>
+        <li><strong>Firebase (Google)</strong> — our backend for accounts, plan status, device list, crash reports, sharing and a few small server functions (sign-in, subscription checks, journal PIN reset email, food lookups, adding a missing product to Open Food Facts).</li>
+        <li><strong>USDA FoodData Central</strong> — public nutrient database. Food names are forwarded to it through our server.</li>
+        <li><strong>Open Food Facts</strong> — a scanned barcode is looked up in this free, public database. If a product is missing and you choose "Add It", the label facts and photo you provide are contributed to it under the app's own account.</li>
+        <li><strong>Stripe</strong> and <strong>Apple (In-App Purchase)</strong> — payment processing, under their own privacy terms.</li>
+        <li><strong>Apple</strong> — Maps/MapKit (leave-by advisory), Speech (voice), CloudKit/iCloud (sync, if you turn it on) and Health.</li>
+        <li><strong>Websites you import from</strong> — when you import a recipe or workout from a link, your phone loads that page directly from the site.</li>
       </ul>
-      <p>There is no analytics or advertising SDK in this app, and no data broker relationship of any kind.</p>
+      <p>There is no analytics or advertising SDK in this app, and no data broker relationship of any kind. Crash diagnostics come from Apple's MetricKit and are sent only to our own backend.</p>
     </section>
 
     <section id="storage">
       <h2>Where your data actually lives</h2>
-      <p>Shopping lists, food inventory, saved recipes, saved workouts, budget entries and receipts, saved meal plans, your journal and its photos, weight and nutrition logs, and product scans are stored <strong>locally on your device</strong> using Apple's SwiftData framework — none of that is uploaded anywhere. If you use iCloud device backups, this data may be included in those backups the same way any other app's local data would be, governed by Apple's own iCloud terms.</p>
-      <p>Separately, your account and subscription record — email, active/inactive status, plan, a billing-provider reference ID, and (for Managed AI plans) a usage count — plus any crash reports and a short-lived journal-PIN reset code, lives in the developer's own Firebase project, the one real server this app relies on. It exists solely to run your membership; it is never sold, shared, or used for advertising.</p>
-      <p>Your Google Account access token is managed entirely by Google's own Sign-In SDK on your device — the developer never receives, stores, or has access to your Google password or a copy of your token.</p>
+      <p>Shopping lists, food inventory, saved recipes and workouts, budget entries and receipts, meal plans, your journal and its photos, weight and nutrition logs and product scans are stored <strong>on your device</strong> using Apple's SwiftData framework. If you turn on <strong>iCloud sync</strong> (Settings → iCloud Sync, off by default), the same data is also kept in your private iCloud so your devices stay in step. We cannot see or access it. Device backups may include it too, under Apple's terms.</p>
+      <p>Our own Firebase project holds: your account and plan record, your device list, crash reports, a short-lived journal-PIN reset code, and anything you choose to share with other people (shared budgets, food inventories and bill splits). It exists to run the app, is never sold, and is never used for advertising.</p>
+      <p>Your Google Account access token is managed entirely by Google's Sign-In SDK on your device. We never receive your Google password or a copy of your token.</p>
     </section>
 
     <section id="control">
       <h2>Your controls</h2>
       <ul>
+        <li><strong>Choose AI or not.</strong> Receipts: each scan asks whether to read the total, read the items, or read it on your phone with no AI. Bank statements: each CSV or PDF import asks whether to use Gemini or keep it on your phone. Everything with an AI option also has a manual way to do the same job.</li>
+        <li><strong>Your own Gemini key.</strong> Settings → Gemini API Key. AI features work only with it, and its usage is tied to your own Google account. Remove it any time to turn all AI off.</li>
+        <li><strong>iCloud sync</strong> — Settings → iCloud Sync, off by default.</li>
+        <li><strong>Sharing</strong> — turn off a shared budget, inventory or bill-split link at any time; for a live link, that deletes the published data immediately.</li>
         <li><strong>Disconnect Google Calendar</strong> — Settings → Sign Out, or revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account settings</a>.</li>
-        <li><strong>Cancel your membership</strong> — Settings in the app, or (for an Apple subscription) iPhone Settings → Subscriptions — see <a href="#account">Account &amp; subscription</a>.</li>
         <li><strong>Back up or move your data</strong> — Settings → Backup &amp; Restore writes everything the app stores to a single file you keep, and can restore from one.</li>
-        <li><strong>Delete local data</strong> — delete individual items in-app, or uninstall the app to remove everything stored locally.</li>
-        <li><strong>Revoke device permissions</strong> — iPhone Settings → Personal Assistant → turn off Camera, Microphone, Location, Calendars, Reminders, Health, or Notifications individually.</li>
-        <li><strong>Bring your own Gemini key</strong> — Settings → Gemini API Key lets you use your own free Google AI Studio key. It's always tried first even on a paid Managed AI plan, so your own key's usage stays tied to your own Google account, not the developer's.</li>
-        <li><strong>Delete your account</strong> — Settings → Delete Account removes your sign-in and your account record from the developer's backend immediately. You can also email <a href="mailto:Caitlin@derivellc.com">Caitlin@derivellc.com</a> to request it.</li>
+        <li><strong>Delete your data</strong> — delete items in the app, or delete the app to remove what's stored on the phone. <strong>Delete Account</strong> in Settings removes your account record from our backend immediately, or email <a href="mailto:Caitlin@derivellc.com">Caitlin@derivellc.com</a>.</li>
+        <li><strong>Revoke device permissions</strong> — iPhone Settings → Personal Assistant → Camera, Microphone, Speech Recognition, Location, Calendars, Reminders, Health or Notifications.</li>
       </ul>
     </section>
 
@@ -345,10 +397,9 @@
       <h2>Children's privacy</h2>
       <p>Personal Assistant is not directed at, marketed to, or knowingly used by children under 13. It's a personal productivity tool designed for a general adult audience.</p>
     </section>
-
     <section id="changes">
       <h2>Changes to this policy</h2>
-      <p>If what the app accesses or how it's used changes meaningfully, this page will be updated and the "Last updated" date above will reflect it. Continuing to use the app after a change means you accept the updated policy.</p>
+      <p>If what the app accesses or how it's used changes meaningfully, this page will be updated and the "Last updated" date above will reflect it. <strong>September 30, 2026:</strong> rewrote this policy to cover the AI features added since September 22 (photos and text sent to Google, voice requests, Nutrition Coach, imports, bank statements), the on-device choices for receipts and statements, optional iCloud sync, sharing, device and account records, USDA lookups, and Apple Health; removed the Managed AI add-on, which no longer exists. Continuing to use the app after a change means you accept the updated policy.</p>
     </section>
 
     <section id="contact">
@@ -361,7 +412,7 @@
 <footer class="bottom">
   <div class="bottom-inner">
     <span><a href="index.html">Personal Assistant</a> — Privacy Policy · <a href="terms.html">Terms of Service</a></span>
-    <span>Last updated September 22, 2026</span>
+    <span>Last updated September 30, 2026</span>
   </div>
 </footer>
 
